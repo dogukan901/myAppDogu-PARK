@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card mb-3">
+                <img src=" <%=parkspot.image %> " class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> Park Yeri: <%= parkspot.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= parkspot.description %>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%= parkspot.location %>
+                    </li>
+                    <li class="list-group-item"> ₺<%= parkspot.price%>/gece </li>
+                </ul>
+                <div class="card-body">
+                    <button class="card-link btn btn-info"
+                        onclick="location.href='/parkyerleri/<%= parkspot._id %>/edit'" type="button"> Edit Parkspot
+                    </button>
+                    <form class="d-inline" action="/parkyerleri/<%= parkspot._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted"> 2 days ago <a href="/parkyerleri">Tüm Park Yerlerine Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
